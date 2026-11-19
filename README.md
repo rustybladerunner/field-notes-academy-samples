@@ -4,7 +4,7 @@ Field Notes Academy publishes short technical lessons for people who build, test
 
 ## Can you rank two alerting systems?
 
-Two alerting systems run the same 24 checks. You have one slot in a field trial. A check passes when an independent reader confirms that the expected alert arrived before its deadline. A failed read leaves the outcome unknown. These counts are invented for the exercise.
+Two alerting systems run the same 24 checks. You have one slot in a field trial. A check passes when an independent reader confirms that the expected alert arrived before its deadline. A confirmed miss counts as a failure. When the reader cannot verify the outcome, record it as unread. These counts are invented for the exercise.
 
 | System | Confirmed passes | Confirmed failures | Unread | Assigned |
 | --- | ---: | ---: | ---: | ---: |
@@ -35,6 +35,6 @@ B finishes with 21 passes. Even if both unread A checks passed, A could reach on
 
 ## Reproduce the arithmetic
 
-Run `python calculate.py` with Python 3. The script reads the included counts and prints both rates and the possible final pass totals. Edit a copy of the CSV to try another case. No packages, credentials, or network connection are required.
+Run `python calculate.py` with Python 3. The script reads the included counts and prints both rates and the possible final pass totals. To reproduce the changed case, copy `checks.csv` to `recovered.csv`, replace the B row with `B,24,21,3,0`, and run `python calculate.py recovered.csv`. B’s final range should be 21–21. Both commands work offline with the Python standard library.
 
 [Input counts](checks.csv) · [Calculation](calculate.py)
